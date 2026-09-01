@@ -1,10 +1,11 @@
 A = [
-    [2.0, 3.0, 1.0],
-    [0.0, 4.0, 2.0],
-    [0.0, 0.0, 5.0]
+    [1.0, 0.0, 0.0, 0.0],
+    [1.0, 1.0, 1.0, 1.0],
+    [1.0, 2.0, 4.0, 8.0],
+    [1.0, 3.0, 9.0, 27.0]
 ]
 
-b = [10.0, 8.0, 15.0]
+b = [0.0, 1.0, 3.0, 4.0]
 n = len(A)
 
 #Aca simplemente hacemos eliminacion por gauss==================================
@@ -36,3 +37,10 @@ for i in range(n - 1, -1, -1):
 print("Vector solucion:")
 for i in range(n):
     print(f"x{i+1} = {x[i]}")
+
+# El determinante es el producto de la diagonal de la matriz triangular.
+determinante = 1.0
+for i in range(n):
+    determinante = determinante * A[i][i]
+
+print(f"Determinante de A: {determinante}")

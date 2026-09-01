@@ -1,11 +1,36 @@
+import math
+
+
+#A = [
+ #   [-1.0, 1.0, -math.cos(math.radians(45.0)), 0.0, 0.0, 0.0],
+  #  [0.0, 0.0, math.sin(math.radians(45.0)), 1.0, 0.0, 0.0],
+   # [0.0, 0.0, 0.0, -1.0, -math.sin(math.radians(45.0)), 0.0],
+    #[0.0, -1.0, 0.0, 0.0, -math.cos(math.radians(45.0)), 0.0],
+    #[0.0, 0.0, 0.0, 0.0, math.sin(math.radians(45.0)), 0.0]
+#]
+
+#b = [0.0, 18.0, 0.0, 0.0, 0.0, 12.0]
+
+
 A = [
-    [0.0, 2.0, 1.0],
-    [2.0, 1.0, -1.0],
-    [0.0, 1.0, 2.0]
+    [80.0, -50.0, -30.0, 0.0],
+    [-50.0, 100.0, -10.0, -25.0],
+    [-30.0, -10.0, 65.0, -20.0],
+    [0.0, -25.0, -20.0, 100.0]
 ]
 
-b = [7.0, 1.0, 8.0]
+b = [-240.0, 0.0, 0.0, 0.0]
 n = len(A)
+intercambios_filas = 0
+
+
+sumaa = 0
+
+for i in range(len(A)):
+    for j in range(len(A)):
+        sumaa += A[i][j] ** 2
+
+norma = math.sqrt(sumaa)
 
 
 
@@ -24,6 +49,7 @@ for i in range(n - 1):
     if fila_pivote != i:
         A[i], A[fila_pivote] = A[fila_pivote], A[i]
         b[i], b[fila_pivote] = b[fila_pivote], b[i]
+        intercambios_filas = intercambios_filas + 1
         
     for j in range(i + 1, n):
         factor = A[j][i] / A[i][i]
@@ -48,3 +74,11 @@ for i in range(n - 1, -1, -1):
 print("Vector solucion:")
 for i in range(n):
     print(f"x{i+1} = {x[i]}")
+
+# Cada intercambio de filas cambia el signo del determinante.
+determinante = (-1.0) ** intercambios_filas
+for i in range(n):
+    determinante = determinante * A[i][i]
+
+print(f"Determinante de A: {determinante}")
+print("Norma =", norma)

@@ -22,3 +22,10 @@ for fila in A:
     print(fila)
 print("Vector b modificado:")
 print(b)
+
+# El determinante es el producto de la diagonal de la matriz triangular.
+determinante = 1.0
+for i in range(n):
+    determinante = determinante * A[i][i]
+
+print(f"Determinante de A: {determinante}")
