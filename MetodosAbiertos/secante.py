@@ -19,4 +19,10 @@ while error > tolerancia and i < limite:
 print("Mostrando resultados (Secante):")
 print("Iteraciones:", i)
 print("Raíz:", xviejo)
-print("Error:", error)
+print("Error absoluto estimado:", error)
+if xviejo != 0:
+    error_porcentual_estimado = (error / abs(xviejo)) * 100
+    print("Error porcentual estimado:", error_porcentual_estimado, "%")
+else:
+    print("Error porcentual estimado: no definido, raiz = 0.")
+print("Residuo |f(raiz)|:", abs(f(xviejo)))

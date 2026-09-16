@@ -6,10 +6,13 @@ def funcion(x: float) -> float:
     #return -2 + 7 * x - 5 * pow(x, 2) + 6 * pow(x, 3)
     #return pow(x, 10) - 1
     #return ((9.81 * x) / 14)*(1 - pow(math.e, (-14 / x) * 7)) - 35
-    return (math.log(x) - 1 + (1/x))/(math.log(x) + ((1-(1/x))/0.67)) - 0.3
+    #return (math.log(x) - 1 + (1/x))/(math.log(x) + ((1-(1/x))/0.67)) - 0.3
+    return -2.9999999999999996 + 4.2333333333333325*x - 1.3499999999999996*x**2 + 0.11666666666666664*x**3
+    
+    
 a = float(input("Ingrese inicio intervalo: "))
 b = float(input("Ingrese fin intervalo: "))
-tolencia = 1e-5
+tolencia = 1e-3
 error = float("inf")#Declaro infitino positivo, es para que sea verdadera al comenzar
 
 i = 0
@@ -21,7 +24,6 @@ if funcion(a) * funcion(b) > 0:
 while error > tolencia:
     i += 1
     cnuevo = (a + b) / 2
-    cota_error = (b - a) / 2
     m = funcion(cnuevo)*funcion(b)
     if(i>1):
         error = abs(cnuevo - cviejo)
@@ -38,11 +40,4 @@ while error > tolencia:
 print("Mostrando Resultados(Biseccion): ")
 print("Iteraciones: ", i)
 print("Raiz: ", cnuevo)
-print("Error absoluto estimado: ", error)
-if cnuevo != 0:
-    error_porcentual_estimado = (error / abs(cnuevo)) * 100
-    print("Error porcentual estimado: ", error_porcentual_estimado, "%")
-else:
-    print("Error porcentual estimado: no definido, raiz = 0.")
-print("Cota de error de biseccion: ", cota_error)
-print("Residuo |funcion(raiz)|: ", abs(funcion(cnuevo)))
+print("Error: ", error)    

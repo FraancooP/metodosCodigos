@@ -6,16 +6,17 @@ def g(x: float) -> float:
     #return math.exp(-x)
     #return math.cos(math.sin(x))
     #return x**(x-math.cos(x))
-    return (13*x**2 - x**3 + 25)/40
+    #return (13*x**2 - x**3 + 25)/40
+    return (math.sin(3*x) - math.log10(x)) / 2
 
 def gprima(x: float) -> float:
     h = 0.001
     return (g(x + h) - g(x)) / h
 
-tolencia = 1e-5
+tolencia = 1e-6
 error = float("inf")#Declaro infitino positivo, es para que sea verdadera al comenzar
 i = 0
-x0 = 3.5
+x0 = 0.5
 xviejo = x0
 while error > tolencia:
     i += 1

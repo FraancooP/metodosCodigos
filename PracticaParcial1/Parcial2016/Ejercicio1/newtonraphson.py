@@ -3,16 +3,16 @@ import math
 
 def f(x: float) -> float:
     #return x**3 - 13*x**2 + 40*x - 25
-    return 30*x**2-x**3-2552
+    return (math.sin(3*x) - math.log10(x)) / 2
     #return x*math.cosh((12)/x) - x - 5
 def fprima(x: float) -> float:
-    h = 0.001
-    return (f(x + h) - f(x)) / h
+    h = 0.01
+    return (3*f(x) - 4*f(x - h) + f(x - 2*h)) / (2*h)
 limite = 1000
-tolerancia = 1e-5
+tolerancia = 1e-6
 error = float("inf")
 i = 0
-x0 = 5
+x0 = 0.5
 xviejo = x0
 while error > tolerancia and i < limite:
     i += 1

@@ -34,4 +34,10 @@ while error > tolencia:
 print("Mostrando Resultados(Regula Falsi): ")
 print("Iteraciones: ", i)
 print("Raiz: ", cnuevo)
-print("Error: ", error)    
+print("Error absoluto estimado: ", error)
+if cnuevo != 0:
+    error_porcentual_estimado = (error / abs(cnuevo)) * 100
+    print("Error porcentual estimado: ", error_porcentual_estimado, "%")
+else:
+    print("Error porcentual estimado: no definido, raiz = 0.")
+print("Residuo |funcion(raiz)|: ", abs(funcion(cnuevo)))
