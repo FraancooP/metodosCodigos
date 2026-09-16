@@ -68,7 +68,7 @@ for i in range(cantidad):
 # 5. MOSTRAR EL POLINOMIO
 # --------------------------------------------------
 
-polinomio = f"{coeficientes[0]:.6f}"
+polinomio = f"{coeficientes[0]}"
 
 for i in range(1, cantidad):
 
@@ -83,7 +83,7 @@ for i in range(1, cantidad):
         potencia = f"x^{i}"
 
     polinomio += (
-        f" {signo} {abs(coeficientes[i]):.6f}{potencia}"
+        f" {signo} {abs(coeficientes[i])}{potencia}"
     )
 
 print("\nPolinomio interpolador:")
@@ -105,3 +105,11 @@ for i in range(cantidad):
     resultado += coeficientes[i] * x_evaluar ** i
 
 print(f"\nP({x_evaluar}) = {resultado}")
+
+#if x_evaluar == 0:
+#    print("No se puede calcular el error, f(x) no está definido en x=0.")
+#else:
+#    f = x_evaluar + 2 / x_evaluar
+#    error_absoluto = abs(f - resultado)
+#    print(f"f({x_evaluar}) = {f}")
+#    print(f"Error absoluto: {error_absoluto:.6f}")
