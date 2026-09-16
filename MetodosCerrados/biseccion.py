@@ -2,11 +2,11 @@ import math
 
 
 def funcion(x: float) -> float:
-    #return math.log(x) + pow(math.e, math.sin(x)) - x
+    return math.log(x) + pow(math.e, math.sin(x)) - x
     #return -2 + 7 * x - 5 * pow(x, 2) + 6 * pow(x, 3)
     #return pow(x, 10) - 1
     #return ((9.81 * x) / 14)*(1 - pow(math.e, (-14 / x) * 7)) - 35
-    return (math.log(x) - 1 + (1/x))/(math.log(x) + ((1-(1/x))/0.67)) - 0.3
+    #return (math.log(x) - 1 + (1/x))/(math.log(x) + ((1-(1/x))/0.67)) - 0.3
 a = float(input("Ingrese inicio intervalo: "))
 b = float(input("Ingrese fin intervalo: "))
 tolencia = 1e-5
@@ -38,6 +38,7 @@ while error > tolencia:
 print("Mostrando Resultados(Biseccion): ")
 print("Iteraciones: ", i)
 print("Raiz: ", cnuevo)
+print("Cviejo: ", cviejo)
 print("Error absoluto estimado: ", error)
 if cnuevo != 0:
     error_porcentual_estimado = (error / abs(cnuevo)) * 100
